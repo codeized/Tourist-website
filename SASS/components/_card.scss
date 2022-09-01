@@ -136,6 +136,7 @@ background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 
      transform: translate(-50%, -50%);
      width: 90%;
      text-align: center;
+    will-change: contents;
      
 }
 
@@ -143,11 +144,13 @@ background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 
 text-align: center;
 color: $color-white;
 margin-bottom: 8rem;
+backface-visibility: hidden;
 }
 
 &__price-only{
     font-size: 1.4rem;
     text-transform: uppercase;
+    backface-visibility: hidden;
 
 }
 

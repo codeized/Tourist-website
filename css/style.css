@@ -116,6 +116,20 @@ body {
 .u-margin-huge-big {
   margin-top: 10rem; }
 
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  opacity: .15;
+  overflow: hidden; }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
 .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -264,14 +278,17 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    text-align: center; }
+    text-align: center;
+    will-change: contents; }
   .card__price-box {
     text-align: center;
     color: #fff;
-    margin-bottom: 8rem; }
+    margin-bottom: 8rem;
+    backface-visibility: hidden; }
   .card__price-only {
     font-size: 1.4rem;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    backface-visibility: hidden; }
   .card__price-value {
     margin-top: -1rem;
     margin-bottom: -2rem;
@@ -327,48 +344,48 @@ body {
   width: 65%;
   margin: 0 auto;
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 3px;
   padding: 6rem;
-  padding-right: 9rem;
-  padding-left: 9rem;
   font-size: 1.5rem;
   transform: skewX(-12deg);
-  backface-visibility: hidden; }
+  will-change: 1;
+  will-change: contents; }
   .story__shape {
     width: 15rem;
     height: 15rem;
     float: left;
     -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
+    transform: skewX(12deg);
+    overflow: hidden;
+    position: relative;
     -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-    transform: translate(-3rem) skewX(12deg);
-    position: relative; }
+    clip-path: circle(50% at 50% 50%); }
   .story__img {
     height: 100%;
     transform: translateX(-4rem) scale(1.4);
-    transition: all .3s;
+    transition: all .5s;
     backface-visibility: hidden; }
   .story__text {
-    padding-left: 4rem;
-    transform: skewX(12deg); }
+    transform: skewX(12deg) translateZ(0);
+    backface-visibility: hidden; }
   .story__caption {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 20%);
+    transform: translate(-50%, 150%);
     color: #fff;
     text-transform: uppercase;
     font-size: 1.7rem;
     text-align: center;
-    opacity: 0;
     transition: all .5s;
     backface-visibility: hidden; }
   .story:hover .story__caption {
     opacity: 1;
     transform: translate(-50%, -50%); }
   .story:hover .story__img {
+    transform: translateX(-4rem) scale(1);
     filter: blur(3px) brightness(80%); }
 
 .row {
@@ -440,5 +457,4 @@ body {
 .section-stories {
   margin-top: -10rem;
   padding: 15rem 0;
-  background-color: #f7f7f7;
-  backface-visibility: hidden; }
+  position: relative; }
